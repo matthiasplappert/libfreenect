@@ -1167,8 +1167,7 @@ static PyObject *__pyx_pf_8freenect_54sync_get_video(CYTHON_UNUSED PyObject *__p
 static PyObject *__pyx_pf_8freenect_56sync_set_led(CYTHON_UNUSED PyObject *__pyx_self, freenect_led_options __pyx_v_option, PyObject *__pyx_v_index); /* proto */
 static PyObject *__pyx_pf_8freenect_58sync_set_tilt_degs(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_angle, PyObject *__pyx_v_index); /* proto */
 static PyObject *__pyx_pf_8freenect_60sync_get_tilt_state(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_index); /* proto */
-static PyObject *__pyx_pf_8freenect_62sync_get_accel(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_index); /* proto */
-static PyObject *__pyx_pf_8freenect_64sync_stop(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_8freenect_62sync_stop(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static PyObject *__pyx_tp_new_8freenect_CtxPtr(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -1287,7 +1286,6 @@ static char __pyx_k_get_tilt_state[] = "get_tilt_state";
 static char __pyx_k_process_events[] = "process_events";
 static char __pyx_k_set_depth_mode[] = "set_depth_mode";
 static char __pyx_k_set_video_mode[] = "set_video_mode";
-static char __pyx_k_sync_get_accel[] = "sync_get_accel";
 static char __pyx_k_sync_get_depth[] = "sync_get_depth";
 static char __pyx_k_sync_get_video[] = "sync_get_video";
 static char __pyx_k_LED_BLINK_GREEN[] = "LED_BLINK_GREEN";
@@ -1441,7 +1439,6 @@ static PyObject *__pyx_n_s_state;
 static PyObject *__pyx_n_s_state_out;
 static PyObject *__pyx_n_s_stop_depth;
 static PyObject *__pyx_n_s_stop_video;
-static PyObject *__pyx_n_s_sync_get_accel;
 static PyObject *__pyx_n_s_sync_get_depth;
 static PyObject *__pyx_n_s_sync_get_tilt_state;
 static PyObject *__pyx_n_s_sync_get_video;
@@ -1460,7 +1457,6 @@ static PyObject *__pyx_n_s_x;
 static PyObject *__pyx_n_s_y;
 static PyObject *__pyx_n_s_z;
 static PyObject *__pyx_int_0;
-static PyObject *__pyx_int_neg_1;
 static PyObject *__pyx_k__5;
 static PyObject *__pyx_k__6;
 static PyObject *__pyx_tuple_;
@@ -1501,7 +1497,6 @@ static PyObject *__pyx_tuple__62;
 static PyObject *__pyx_tuple__64;
 static PyObject *__pyx_tuple__66;
 static PyObject *__pyx_tuple__68;
-static PyObject *__pyx_tuple__70;
 static PyObject *__pyx_codeobj__14;
 static PyObject *__pyx_codeobj__16;
 static PyObject *__pyx_codeobj__18;
@@ -1531,8 +1526,7 @@ static PyObject *__pyx_codeobj__63;
 static PyObject *__pyx_codeobj__65;
 static PyObject *__pyx_codeobj__67;
 static PyObject *__pyx_codeobj__69;
-static PyObject *__pyx_codeobj__71;
-static PyObject *__pyx_codeobj__72;
+static PyObject *__pyx_codeobj__70;
 
 /* "freenect.pyx":171
  * DEVICE_AUDIO = FREENECT_DEVICE_AUDIO
@@ -7759,137 +7753,39 @@ static PyObject *__pyx_pf_8freenect_60sync_get_tilt_state(CYTHON_UNUSED PyObject
 /* "freenect.pyx":572
  * 
  * 
- * def sync_get_accel(index=0):             # <<<<<<<<<<<<<<
- *     # TODO: implement
- *     return -1
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_8freenect_63sync_get_accel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_8freenect_63sync_get_accel = {"sync_get_accel", (PyCFunction)__pyx_pw_8freenect_63sync_get_accel, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_8freenect_63sync_get_accel(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  CYTHON_UNUSED PyObject *__pyx_v_index = 0;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("sync_get_accel (wrapper)", 0);
-  {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_index,0};
-    PyObject* values[1] = {0};
-    values[0] = ((PyObject *)__pyx_int_0);
-    if (unlikely(__pyx_kwds)) {
-      Py_ssize_t kw_args;
-      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
-      switch (pos_args) {
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      kw_args = PyDict_Size(__pyx_kwds);
-      switch (pos_args) {
-        case  0:
-        if (kw_args > 0) {
-          PyObject* value = PyDict_GetItem(__pyx_kwds, __pyx_n_s_index);
-          if (value) { values[0] = value; kw_args--; }
-        }
-      }
-      if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sync_get_accel") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 572; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
-      }
-    } else {
-      switch (PyTuple_GET_SIZE(__pyx_args)) {
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-    }
-    __pyx_v_index = values[0];
-  }
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("sync_get_accel", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 572; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
-  __pyx_L3_error:;
-  __Pyx_AddTraceback("freenect.sync_get_accel", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_8freenect_62sync_get_accel(__pyx_self, __pyx_v_index);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_8freenect_62sync_get_accel(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_index) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("sync_get_accel", 0);
-
-  /* "freenect.pyx":574
- * def sync_get_accel(index=0):
- *     # TODO: implement
- *     return -1             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_int_neg_1);
-  __pyx_r = __pyx_int_neg_1;
-  goto __pyx_L0;
-
-  /* "freenect.pyx":572
- * 
- * 
- * def sync_get_accel(index=0):             # <<<<<<<<<<<<<<
- *     # TODO: implement
- *     return -1
- */
-
-  /* function exit code */
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "freenect.pyx":577
- * 
- * 
  * def sync_stop():             # <<<<<<<<<<<<<<
  *     """Terminate the synchronous runloop if running, else this is a NOP
  *     """
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8freenect_65sync_stop(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_8freenect_64sync_stop[] = "Terminate the synchronous runloop if running, else this is a NOP\n    ";
-static PyMethodDef __pyx_mdef_8freenect_65sync_stop = {"sync_stop", (PyCFunction)__pyx_pw_8freenect_65sync_stop, METH_NOARGS, __pyx_doc_8freenect_64sync_stop};
-static PyObject *__pyx_pw_8freenect_65sync_stop(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_8freenect_63sync_stop(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_8freenect_62sync_stop[] = "Terminate the synchronous runloop if running, else this is a NOP\n    ";
+static PyMethodDef __pyx_mdef_8freenect_63sync_stop = {"sync_stop", (PyCFunction)__pyx_pw_8freenect_63sync_stop, METH_NOARGS, __pyx_doc_8freenect_62sync_stop};
+static PyObject *__pyx_pw_8freenect_63sync_stop(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("sync_stop (wrapper)", 0);
-  __pyx_r = __pyx_pf_8freenect_64sync_stop(__pyx_self);
+  __pyx_r = __pyx_pf_8freenect_62sync_stop(__pyx_self);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8freenect_64sync_stop(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_8freenect_62sync_stop(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("sync_stop", 0);
 
-  /* "freenect.pyx":580
+  /* "freenect.pyx":575
  *     """Terminate the synchronous runloop if running, else this is a NOP
  *     """
  *     freenect_sync_stop()             # <<<<<<<<<<<<<<
  */
   freenect_sync_stop();
 
-  /* "freenect.pyx":577
+  /* "freenect.pyx":572
  * 
  * 
  * def sync_stop():             # <<<<<<<<<<<<<<
@@ -10319,7 +10215,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_state_out, __pyx_k_state_out, sizeof(__pyx_k_state_out), 0, 0, 1, 1},
   {&__pyx_n_s_stop_depth, __pyx_k_stop_depth, sizeof(__pyx_k_stop_depth), 0, 0, 1, 1},
   {&__pyx_n_s_stop_video, __pyx_k_stop_video, sizeof(__pyx_k_stop_video), 0, 0, 1, 1},
-  {&__pyx_n_s_sync_get_accel, __pyx_k_sync_get_accel, sizeof(__pyx_k_sync_get_accel), 0, 0, 1, 1},
   {&__pyx_n_s_sync_get_depth, __pyx_k_sync_get_depth, sizeof(__pyx_k_sync_get_depth), 0, 0, 1, 1},
   {&__pyx_n_s_sync_get_tilt_state, __pyx_k_sync_get_tilt_state, sizeof(__pyx_k_sync_get_tilt_state), 0, 0, 1, 1},
   {&__pyx_n_s_sync_get_video, __pyx_k_sync_get_video, sizeof(__pyx_k_sync_get_video), 0, 0, 1, 1},
@@ -10813,23 +10708,11 @@ static int __Pyx_InitCachedConstants(void) {
   /* "freenect.pyx":572
  * 
  * 
- * def sync_get_accel(index=0):             # <<<<<<<<<<<<<<
- *     # TODO: implement
- *     return -1
- */
-  __pyx_tuple__70 = PyTuple_Pack(1, __pyx_n_s_index); if (unlikely(!__pyx_tuple__70)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 572; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_tuple__70);
-  __Pyx_GIVEREF(__pyx_tuple__70);
-  __pyx_codeobj__71 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__70, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_matze_Labs_nn_robot_vendo, __pyx_n_s_sync_get_accel, 572, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__71)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 572; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-
-  /* "freenect.pyx":577
- * 
- * 
  * def sync_stop():             # <<<<<<<<<<<<<<
  *     """Terminate the synchronous runloop if running, else this is a NOP
  *     """
  */
-  __pyx_codeobj__72 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_matze_Labs_nn_robot_vendo, __pyx_n_s_sync_stop, 577, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__72)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 577; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__70 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_matze_Labs_nn_robot_vendo, __pyx_n_s_sync_stop, 572, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__70)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 572; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -10840,7 +10723,6 @@ static int __Pyx_InitCachedConstants(void) {
 static int __Pyx_InitGlobals(void) {
   if (__Pyx_InitStrings(__pyx_string_tab) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   __pyx_int_0 = PyInt_FromLong(0); if (unlikely(!__pyx_int_0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_int_neg_1 = PyInt_FromLong(-1); if (unlikely(!__pyx_int_neg_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -11785,25 +11667,13 @@ PyMODINIT_FUNC PyInit_freenect(void)
   /* "freenect.pyx":572
  * 
  * 
- * def sync_get_accel(index=0):             # <<<<<<<<<<<<<<
- *     # TODO: implement
- *     return -1
- */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_8freenect_63sync_get_accel, NULL, __pyx_n_s_freenect); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 572; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sync_get_accel, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 572; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "freenect.pyx":577
- * 
- * 
  * def sync_stop():             # <<<<<<<<<<<<<<
  *     """Terminate the synchronous runloop if running, else this is a NOP
  *     """
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_8freenect_65sync_stop, NULL, __pyx_n_s_freenect); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 577; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_8freenect_63sync_stop, NULL, __pyx_n_s_freenect); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 572; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sync_stop, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 577; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sync_stop, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 572; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "freenect.pyx":1

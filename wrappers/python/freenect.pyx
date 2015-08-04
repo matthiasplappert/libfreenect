@@ -569,11 +569,6 @@ def sync_get_tilt_state(index=0):
     return state_out
 
 
-def sync_get_accel(index=0):
-    # TODO: implement
-    return -1
-
-
 def sync_stop():
     """Terminate the synchronous runloop if running, else this is a NOP
     """
