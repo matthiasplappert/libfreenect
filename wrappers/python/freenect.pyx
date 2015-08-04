@@ -136,6 +136,9 @@ cdef extern from "libfreenect.h":
 cdef extern from "libfreenect_sync.h":
     int freenect_sync_get_video(void **video, uint32_t *timestamp, int index, freenect_video_format fmt) nogil
     int freenect_sync_get_depth(void **depth, uint32_t *timestamp, int index, freenect_depth_format fmt) nogil
+    int freenect_sync_set_led(freenect_led_options led, int index) nogil
+    int freenect_sync_get_tilt_state(freenect_raw_tilt_state **state, int index) nogil
+    int freenect_sync_set_tilt_degs(int angle, int index) nogil
     void freenect_sync_stop()
 
 
@@ -546,6 +549,29 @@ def sync_get_video(index=0, format=VIDEO_RGB):
         return PyArray_SimpleNewFromData(2, dims, npc.NPY_UINT16, data), timestamp
     else:
         raise TypeError('Conversion not implemented for type [%d]' % (format))
+
+
+def sync_set_led(freenect_led_options option, index=0):
+    return freenect_sync_set_led(option, index)
+
+
+def sync_set_tilt_degs(int angle, index=0):
+    return freenect_sync_set_tilt_degs(angle, index)
+
+
+def sync_get_tilt_state(index=0):
+    cdef freenect_raw_tilt_state* state
+    res = freenect_sync_get_tilt_state(&state, index)
+    if res != 0:
+        return None
+    cdef StatePtr state_out = StatePtr.__new__(StatePtr)
+    state_out._ptr = state
+    return state_out
+
+
+def sync_get_accel(index=0):
+    # TODO: implement
+    return -1
 
 
 def sync_stop():
