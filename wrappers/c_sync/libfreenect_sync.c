@@ -224,6 +224,7 @@ static void init_thread(void)
 
 static int change_video_format(sync_kinect_t *kinect, freenect_resolution res, freenect_video_format fmt)
 {
+	printf("disabled video!\n")
 	return 0;
 	// freenect_stop_video(kinect->dev);
 	// free_buffer_ring(&kinect->video);
