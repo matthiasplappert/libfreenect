@@ -196,7 +196,7 @@ static void *init(void *unused)
 	int i;
 	for (i = 0; i < MAX_KINECTS; ++i) {
 		if (kinects[i]) {
-			freenect_stop_video(kinects[i]->dev);
+			//freenect_stop_video(kinects[i]->dev);
 			freenect_stop_depth(kinects[i]->dev);
 			freenect_set_user(kinects[i]->dev, NULL);
 			freenect_close_device(kinects[i]->dev);
@@ -224,14 +224,15 @@ static void init_thread(void)
 
 static int change_video_format(sync_kinect_t *kinect, freenect_resolution res, freenect_video_format fmt)
 {
-	freenect_stop_video(kinect->dev);
-	free_buffer_ring(&kinect->video);
-	if (alloc_buffer_ring_video(res, fmt, &kinect->video))
-		return -1;
-	freenect_set_video_mode(kinect->dev, freenect_find_video_mode(res, fmt));
-	freenect_set_video_buffer(kinect->dev, kinect->video.bufs[2]);
-	freenect_start_video(kinect->dev);
 	return 0;
+	// freenect_stop_video(kinect->dev);
+	// free_buffer_ring(&kinect->video);
+	// if (alloc_buffer_ring_video(res, fmt, &kinect->video))
+	// 	return -1;
+	// freenect_set_video_mode(kinect->dev, freenect_find_video_mode(res, fmt));
+	// freenect_set_video_buffer(kinect->dev, kinect->video.bufs[2]);
+	// freenect_start_video(kinect->dev);
+	// return 0;
 }
 
 static int change_depth_format(sync_kinect_t *kinect, freenect_resolution res, freenect_depth_format fmt)
@@ -262,7 +263,7 @@ static sync_kinect_t *alloc_kinect(int index)
 	kinect->video.res = -1;
 	kinect->depth.fmt = -1;
 	kinect->depth.res = -1;
-	freenect_set_video_callback(kinect->dev, video_producer_cb);
+	//freenect_set_video_callback(kinect->dev, video_producer_cb);
 	freenect_set_depth_callback(kinect->dev, depth_producer_cb);
 	pthread_mutex_init(&kinect->video.lock, NULL);
 	pthread_mutex_init(&kinect->depth.lock, NULL);
